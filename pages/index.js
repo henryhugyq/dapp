@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import {Contract, ethers, } from 'ethers';
 import Head from "next/head";
+import { Analytics } from "@vercel/analytics/react";
 
 function Home() {
     //ethers v6
