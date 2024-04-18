@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import {Contract, ethers, } from 'ethers';
 import Head from "next/head";
-import { Analytics } from "@vercel/analytics/react";
 
 function Home() {
     //ethers v6
@@ -27,7 +26,7 @@ function Home() {
     //点击按钮的时候登录
     const connectOnclick = async() => {
         if (!window.ethereum) {
-           alert("Metamask not installed")
+           alert("Metamask not install")
 
            return ;
         }
