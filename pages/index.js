@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import {Contract, ethers, } from 'ethers';
 import Head from "next/head";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 function Home() {
     //ethers v6
@@ -166,6 +167,7 @@ function Home() {
                         <h5 style={{color:"chocolate",textAlign:'center'}}>Read the doc🦊<a href="https://docs.metamask.io/wallet/">https://docs.metamask.io/wallet/</a></h5>
                         <h5 style={{color:"slateblue",textAlign:'center'}}>Ethers.js v6🍃<a href="https://docs.ethers.org/v6/">https://docs.ethers.org/v6/</a></h5>
  <Analytics />
+<SpeedInsights />
 
 
             </div>
