@@ -165,6 +165,7 @@ function Home() {
                         <h4 style={{textAlign:'center',color:"grey"}}>The Greeting Contract Address is <a href="https://www.oklink.com/cn/sepolia-test/address/0x76f5c15b459044542169151f335575f501cf5ec0" style={{textDecoration:"none",color:"lightslategrey"}}>0x76f5c15b459044542169151f335575f501cf5ec0</a></h4>
                         <h5 style={{color:"chocolate",textAlign:'center'}}>Read the doc🦊<a href="https://docs.metamask.io/wallet/">https://docs.metamask.io/wallet/</a></h5>
                         <h5 style={{color:"slateblue",textAlign:'center'}}>Ethers.js v6🍃<a href="https://docs.ethers.org/v6/">https://docs.ethers.org/v6/</a></h5>
+ <Analytics />
 
 
             </div>
