@@ -1,7 +1,7 @@
 //此页面用于演示合约调用
 import React, {useEffect, useState} from 'react';
 
-import {Breadcrumb, Input, Layout, Toast, Typography,} from '@douyinfe/semi-ui';
+import {Breadcrumb, Input, Layout, Toast, Typography,Tooltip} from '@douyinfe/semi-ui';
 
 
 import "@douyinfe/semi-ui/dist/css/semi.css";
@@ -225,10 +225,10 @@ const CrowdCallContent = ({contractAddress}) => {
                 }}
             >
                 <div className="container">
-                    <h2 style={{textAlign:"center"}}>ChainRaise-众筹主页面</h2>
-                    <h3 style={{color:"slateblue",textAlign:'center'}} >当前合约地址为: <a href={`https://sepolia.etherscan.io/address/${contractAddress}`} style={{color:"slateblue",textDecoration:"none"}}>{contractAddress}</a></h3>
-                    <h5 style={{textAlign:"center"}}>截止时间(UTC+8)：<a style={{color:"chocolate"}}>{endTime}</a></h5>
-                    <h5 style={{textAlign:"center"}}>目标/已筹集[<a style={{color:"orangered"}}>{totalGoal}</a>/<a style={{color:"forestgreen"}}>{totalRaised}</a>]</h5>
+                    <h2 style={{textAlign:"center",color:"rgba(var(--semi-grey-9), 1)"}}>ChainRaise-众筹主页面</h2>
+                    <h3 style={{color:"rgba(var(--semi-grey-9), 1)",textAlign:'center'}} >当前合约地址为: <a href={`https://sepolia.etherscan.io/address/${contractAddress}`} style={{color:"rgba(var(--semi-blue-2), 1)",textDecoration:"none"}}>{contractAddress}</a></h3>
+                    <h5 style={{textAlign:"center",color:"rgba(var(--semi-grey-9), 1)"}}>截止时间(UTC+8)：<a style={{color:"rgba(var(--semi-yellow-4), 1)"}}>{endTime}</a></h5>
+                    <h5 style={{textAlign:"center",color:"rgba(var(--semi-grey-9), 1)"}}>目标/已筹集[<a style={{color:"rgba(var(--semi-red-5), 1)"}}>{totalGoal}</a>/<a style={{color:"rgba(var(--semi-green-5), 1)"}}>{totalRaised}</a>]</h5>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                     <input
                         type="text"
@@ -237,21 +237,45 @@ const CrowdCallContent = ({contractAddress}) => {
                         onChange={(e) => setSentValue(e.target.value)}
                         placeholder="请输入发送金额"
                     />
+                        <Tooltip
+                            position='top'
+                            content='请仔细检查发送ETH数量'>
                     <button onClick={Contribute}>contribute</button>
+                        </Tooltip>
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <Tooltip
+                            position='top'
+                            content='查询当前账户的FT数量'>
                         <button onClick={FtBalance}>查询余额</button>
-                        <h4 style={{ marginLeft: '10px' }}>余额(ERC20)为：{ftBalance}</h4>
+                        </Tooltip>
+                        <h4 style={{ color:"rgba(var(--semi-grey-9), 1)",marginLeft: '10px' }}>余额(ERC20)为：<a style={{color:"rgba(var(--semi-purple-2), 1)"}}>{ftBalance}</a></h4>
                     </div>
                     <button onClick={getTotalGoal} style={{}}>众筹总目标</button>
                     <button onClick={getTotalRaised} style={{marginLeft:20}}>已筹集目标</button>
+                    <Tooltip
+                        position='top'
+                        content='众筹达到后，管理员可提取'>
                     <button onClick={withdrawFunds}style={{marginLeft:20}}>提取存款</button>
+                    </Tooltip>
                     <button onClick={getReached}style={{marginLeft:20}}>众筹状态</button>
+                    <Tooltip
+                        position='top'
+                        content='获取当前的Sepolia Data Feed'>
                     <button onClick={convertValue}style={{marginLeft:20}}>获取喂价</button>
+                    </Tooltip>
                     <br/>
                     <br/>
+                    <Tooltip
+                        position='top'
+                        content='众筹目标未达成，管理员标记状态为众筹取消'>
                     <button onClick={cancelFund}style={{}}>取消众筹</button>
+                    </Tooltip>
+                    <Tooltip
+                        position='top'
+                        content='众筹取消后，用户可退款'>
                     <button onClick={reFund}style={{marginLeft:20}}>退款</button>
+                    </Tooltip>
                 </div>
             </div>
             <style jsx>
