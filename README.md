@@ -3,6 +3,7 @@
 * 基于Ethereum Sepolia
 * next.js/ethers.js
 * Chainlink Data Feed | VRF
+* semi-ui
 
 ## 安装依赖
 ```
