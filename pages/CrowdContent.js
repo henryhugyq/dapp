@@ -101,7 +101,7 @@ const CrowdContent = ({goToCrowdCallContent }) => {
                     padding: '32px',
                 }}
             >
-                <Title style={{textAlign:"center",color:"rgba(var(--semi-indigo-1), 1)"}}>🦋部署合约</Title>
+                <Title style={{textAlign:"center",color:"rgba(var(--semi-indigo-1), 1)"}}>🦋部署众筹合约</Title>
                 <br/>
                 <br/>
 
