@@ -18,12 +18,10 @@ import {ethers} from "ethers";
 
 
 
-const MintContent = () => {
+const MintContent = ({contractAddress2}) => {
     const { Header, Footer, Sider, Content } = Layout;
     const {Title,Paragraph,Text} = Typography;
     const router = useRouter();
-    const { contractAddress } = router.query;
-
     const [owner,setOwner] =useState();
     const [provider,setProvider] = useState();
     const [contract,setContract] = useState();
@@ -73,52 +71,63 @@ const MintContent = () => {
             setAccount(accountsChange[0]);
         })
         const signer = await providerWeb3.getSigner(currenAccounts[0]);
-        const contract = await new ethers.Contract(MINT_CONTRACT_ADDRESS, MINT_ABI, signer);
+        const contract = await new ethers.Contract(contractAddress2, MINT_ABI, signer);
         setContract(contract);
     }
     useEffect(() => {
         newContract();
     }, []);
     const safeMint = async ()=>{
-        setLoading(true)
+        try {
 
-        await newContract()
-        const tx = await contract.safeMint();
 
-        await tx.wait()
+            setLoading(true)
 
-        contract.on("TokenMinted", (owner, tokenId) => {
-            console.log(`Token minted with tokenId: ${tokenId}`);
-            setTokenId(tokenId)
-            event.removeListener();
-        });
+            await newContract()
 
-        console.log("id++"+tokenId)
-        let opts = {
-            content: 'Mint VRF NFT Success! The tx hash is:'+tx.hash,
-            duration: 5,
-            theme: 'light',
-        };
-        Toast.success(opts)
-        let multiLineOpts = {
-            content: (
-                <>
-                    <div>暂未监听到ID</div>
-                    <div style={{ marginTop: 8 }}>
-                        <Text link={{href:'https://testnets.opensea.io/assets/sepolia/0x3e3cc53e0ef27c631134fc6879fa72c69dca6907/'}}>前往opensea</Text>
-                        <Text link={{href:'https://vrf.chain.link/sepolia/38682364881791566444629463752903983233442276211092913406418450536704825806346'}}style={{ marginLeft: 20 }}>
-                            前往VRF控制台
-                        </Text>
-                    </div>
-                </>
-            ),
-            duration: 8,
-        };
+            const tx = await contract.safeMint();
 
-        setLoading(false)
 
-        if (!tokenId){
-            Toast.warning(multiLineOpts)
+            await tx.wait()
+
+            contract.on("TokenMinted", (owner, tokenId) => {
+                console.log(`Token minted with tokenId: ${tokenId}`);
+                setTokenId(tokenId)
+                event.removeListener();
+            });
+
+            console.log("id++" + tokenId)
+            let opts = {
+                content: 'Mint VRF NFT Success! The tx hash is:' + tx.hash,
+                duration: 5,
+                theme: 'light',
+            };
+            Toast.success(opts)
+            let multiLineOpts = {
+                content: (
+                    <>
+                        <div>暂未监听到ID</div>
+                        <div style={{marginTop: 8}}>
+                            <Text
+                                link={{href: 'https://testnets.opensea.io/assets/sepolia/0x3e3cc53e0ef27c631134fc6879fa72c69dca6907/'}}>前往opensea</Text>
+                            <Text
+                                link={{href: 'https://vrf.chain.link/sepolia/38682364881791566444629463752903983233442276211092913406418450536704825806346'}}
+                                style={{marginLeft: 20}}>
+                                前往VRF控制台
+                            </Text>
+                        </div>
+                    </>
+                ),
+                duration: 8,
+            };
+
+            setLoading(false)
+
+            if (!tokenId) {
+                Toast.warning(multiLineOpts)
+            }
+        }catch (error){
+            Toast.error("请检查当前合约的link余额!"+error.message)
         }
 
     }
@@ -128,7 +137,7 @@ const MintContent = () => {
             if(!tokenId){
                 return ;
             }
-            const openseaLink = `https://testnets.opensea.io/assets/sepolia/${MINT_CONTRACT_ADDRESS}/${tokenId}`;
+            const openseaLink = `https://testnets.opensea.io/assets/sepolia/${contractAddress2}/${tokenId}`;
             setNftLink(openseaLink)
         }
         getLink()
