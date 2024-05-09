@@ -314,7 +314,7 @@ function chainRaise() {
                         alignItems: 'center',
                     }}
                 >
-                    <span>Copyright © 2024-DAPP ChainRaise @Ethereum Sepolia @github.com/henryhugyq  </span>
+                    <span>Copyright © 2024-DAPP ChainRaise @Ethereum Sepolia </span>
                 </span>
 
             </Footer>
