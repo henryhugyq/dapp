@@ -30,6 +30,7 @@ import MintContent from "./MintContent";
 import CrowdContent from "./CrowdContent";
 import {Contract, ethers} from "ethers";
 import CrowdCallContent from "./CrowdCallContent";
+import MintDeploy from "./MintDeploy";
 import en_GB from "@douyinfe/semi-ui/lib/es/locale/source/en_GB";
 import ja_JP from '@douyinfe/semi-ui/lib/es/locale/source/ja_JP';
 
@@ -43,6 +44,7 @@ function chainRaise() {
     const [provider,setProvider] = useState();
     const [blockNumber,setBlockNumber] = useState();
     const [contractAddress, setContractAddress] = useState(null);
+    const [contractAddress2, setContractAddress2] = useState(null);
     const [switchStatus,setswitchStatus] = useState(true)
 
 
@@ -89,6 +91,11 @@ function chainRaise() {
     const goToCrowdCallContent = (address) => {
         setSelectedKey('CrowdCallContent'); // 更新 selectedKey
         setContractAddress(address); // 存储合约地址
+    };
+
+    const goToMintContent = (address2) => {
+        setSelectedKey('MintContent'); // 更新 selectedKey
+        setContractAddress2(address2); // 存储合约地址
     };
 
 
@@ -194,7 +201,7 @@ function chainRaise() {
                                 <Empty
                                     title={'ChainRaise Tips'}
                                     description="1.使用metamask链接到此网站|
-                                    2.NFT铸造使用VRF随机数随机匹配metadata|3.众筹板块需要先部署合约再操作，每次刷新将重置部署界面"
+                                    2.NFT铸造使用VRF随机数随机匹配metadata,部署合约后请将铸造合约地址在VRF控制台添加为Consumer|3.众筹板块需要先部署合约再操作，每次刷新将重置部署界面"
                                     style={{ width: 400, margin: '0 auto', display: 'flex', padding: 20 }}
                                 />
                             }
@@ -275,7 +282,13 @@ function chainRaise() {
                 </Sider>
                 {/* 这里根据 selectedKey 的值来渲染不同的页面内容 */}
                 {selectedKey === 'Home' && <HomeContent />}
-                {selectedKey === 'Mint' && <MintContent />}
+                {selectedKey === 'Mint' && <MintDeploy
+                    goToMintContent={goToMintContent}/>}
+                {selectedKey === 'MintContent' && (
+                    <MintContent
+                        contractAddress2={contractAddress2}
+                    />
+                )}
                 {selectedKey === 'Crowd' && <CrowdContent
                     goToCrowdCallContent={goToCrowdCallContent} />}
                 {selectedKey === 'CrowdCallContent' && (
@@ -301,7 +314,7 @@ function chainRaise() {
                         alignItems: 'center',
                     }}
                 >
-                    <span>Copyright © 2024-DAPP ChainRaise @Ethereum Sepolia  </span>
+                    <span>Copyright © 2024-DAPP ChainRaise @Ethereum Sepolia @github.com/henryhugyq  </span>
                 </span>
 
             </Footer>
