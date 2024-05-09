@@ -1,6 +1,6 @@
 # 智能合约课设-基于区块链的众筹-AUST
 ---
-* 基于Ethereum Sepolia
+* Ethereum Sepolia
 * next.js/ethers.js
 * Chainlink Data Feed | VRF
 * semi-ui
