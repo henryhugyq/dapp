@@ -91,7 +91,7 @@ const CrowdContent = ({goToCrowdCallContent }) => {
                 style={{
                     marginBottom: '24px',
                 }}
-                routes={['ChainRaise', 'CrowdFunding']}
+                routes={['ChainRaise', 'CrowdFundingDeploy']}
             />
             <div
                 style={{
