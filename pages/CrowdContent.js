@@ -154,11 +154,11 @@ const CrowdContent = ({goToCrowdCallContent }) => {
                     line-height: 32px;
                   }
                 .container {
-                  border: 4px solid #eebb5e; /* 边框颜色 */
-                  border-radius: 15px; /* 圆角大小 */
-                  padding: 20px; /* 内边距 */
-                  margin: 0 auto; /* 上下边距为0，左右自动，水平居中 */
-                  width: fit-content; /* 宽度自适应内容 */
+                  border: 4px solid #eebb5e; 
+                  border-radius: 15px; 
+                  padding: 20px;
+                  margin: 0 auto;
+                  width: fit-content;
                 }
                 button {
                     padding: 9px 16px;
