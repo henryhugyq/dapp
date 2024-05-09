@@ -127,7 +127,7 @@ const MintContent = ({contractAddress2}) => {
                 Toast.warning(multiLineOpts)
             }
         }catch (error){
-            Toast.error("请检查当前合约的link余额!"+error.message)
+            Toast.error(error.message)
         }
 
     }
