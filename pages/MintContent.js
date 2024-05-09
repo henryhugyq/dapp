@@ -109,7 +109,7 @@ const MintContent = ({contractAddress2}) => {
                         <div>暂未监听到ID</div>
                         <div style={{marginTop: 8}}>
                             <Text
-                                link={{href: 'https://testnets.opensea.io/assets/sepolia/0x3e3cc53e0ef27c631134fc6879fa72c69dca6907/'}}>前往opensea</Text>
+                                link={{href: 'https://testnets.opensea.io/assets/sepolia/'}}>前往opensea</Text>
                             <Text
                                 link={{href: 'https://vrf.chain.link/sepolia/38682364881791566444629463752903983233442276211092913406418450536704825806346'}}
                                 style={{marginLeft: 20}}>
@@ -255,12 +255,12 @@ const MintContent = ({contractAddress2}) => {
                  }
 
                  .link {
-                   border: 2px solid #9bdff8; /* 边框颜色 */
-                   border-radius: 10px; /* 圆角大小 */
-                   padding: 5px; /* 内边距 */
+                   border: 2px solid #9bdff8; 
+                   border-radius: 10px; 
+                   padding: 5px; 
                    margin-top: -37px;
                    margin-left: 230px;
-                   width: 900px; /* 宽度自适应内容 */
+                   width: 900px; 
                  }
                `}
            </style>
