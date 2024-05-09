@@ -13,7 +13,7 @@ import {
     IconHistogram,
     IconLive,
     IconSetting,
-    IconLock, IconUnlock, IconCalendar,
+    IconLock, IconUnlock, IconCalendar, IconGithubLogo,
 } from '@douyinfe/semi-icons';
 import en_GB from '@douyinfe/semi-ui/lib/es/locale/source/en_GB';
 import "@douyinfe/semi-ui/dist/css/semi.css";
@@ -83,8 +83,12 @@ const HomeContent = () => {
                         <br></br>
                         透明 可信 可查询
                     </Text>
+
                         </div>
                     </div>
+                    <br/>
+
+                    <Text style={{color:"slateblue",textAlign:'center'}} icon={<IconGithubLogo />}>开源地址:<a href="https://github.com/henryhugyq/dapp" style={{textDecoration:"none",color:"rgba(var(--semi-grey-4), 1)"}}>https://github.com/henryhugyq/dapp</a></Text>
                 </div>
             </div>
         </Content>
