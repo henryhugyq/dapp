@@ -15,4 +15,5 @@ npm i
 npm run dev
 ```
 在localhost:3000/ChainRaise查看
-
+## 注意
+VRF版本为v2.5，需要自己创建订阅id，并将Mint Contract标记为Consumer
